@@ -2,12 +2,12 @@
 
 # 🎯TrendRadar
 
-<strong>🚀 最快一分钟部署的热点助手 —— 告别无效刷屏，只看真正关心的新闻资讯</strong>
+🚀 最快<strong>30秒</strong>部署的热点助手 —— 告别无效刷屏，只看真正关心的新闻资讯
 
 [![GitHub Stars](https://img.shields.io/github/stars/sansan0/TrendRadar?style=flat-square&logo=github&color=yellow)](https://github.com/sansan0/TrendRadar/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/sansan0/TrendRadar?style=flat-square&logo=github&color=blue)](https://github.com/sansan0/TrendRadar/network/members)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-v2.0.3-green.svg?style=flat-square)](https://github.com/sansan0/TrendRadar)
+[![Version](https://img.shields.io/badge/version-v2.1.2-green.svg?style=flat-square)](https://github.com/sansan0/TrendRadar)
 
 [![企业微信通知](https://img.shields.io/badge/企业微信-通知支持-00D4AA?style=flat-square)](https://work.weixin.qq.com/)
 [![Telegram通知](https://img.shields.io/badge/Telegram-通知支持-00D4AA?style=flat-square)](https://telegram.org/)
@@ -23,8 +23,47 @@
 > 本项目以轻量，易部署为目标，主要处理 issues
 >
 > 遇到问题提 issues，或【硅基茶水间】公众号留言
->
-> **Fork** 的同时，如果觉得有帮助，请顺手点个 ⭐️ **Star**，感谢支持
+
+<details>
+<summary>👉 点击查看<strong>致谢名单</strong> (当前 <strong>🔥18🔥</strong> 位)</summary>
+
+### 数据支持
+
+本项目使用了 [newsnow](https://github.com/ourongxing/newsnow) 项目提供的 API 接口获取多平台数据
+
+### 推广助力
+
+> 感谢以下平台和个人的推荐(按时间排列)，以及各微信群，qq群等给到这个项目帮助的人
+
+- [小众软件](https://mp.weixin.qq.com/s/fvutkJ_NPUelSW9OGK39aA) - 开源软件推荐平台
+- [LinuxDo 社区](https://linux.do/) - 技术爱好者的聚集地
+- [阮一峰周刊](https://github.com/ruanyf/weekly) - 技术圈有影响力的周刊
+
+### 观众支持
+
+> 感谢以下热心观众的信任与支持
+
+|           点赞人            |  金额  |  日期  |             备注             |
+| :-------------------------: | :----: | :----: | :-----------------------: |
+|           *号            |  1  | 2025.9.15  |           |
+|           T*T            |  2  | 2025.9.15  |  点赞         |
+|           *家            |  10  | 2025.9.10  |           |
+|           *X            |  1.11  | 2025.9.3  |           |
+|           *飙            |  20  | 2025.8.31  |  来自老童谢谢         |
+|           *下            |  1  | 2025.8.30  |           |
+|           2*D            |  88  | 2025.8.13 下午 |           |
+|           2*D            |  1  | 2025.8.13 上午 |           |
+|           S*o            |  1  | 2025.8.05 |   支持一下        |
+|           *侠            |  10  | 2025.8.04 |           |
+|           x*x            |  2  | 2025.8.03 |  trendRadar 好项目 点赞          |
+|           *远            |  1  | 2025.8.01 |            |
+|           *邪            |  5  | 2025.8.01 |            |
+|           *梦            |  0.1  | 2025.7.30 |            |
+|           **龙            |  10  | 2025.7.29 |      支持一下      |
+
+
+</details>
+
 
 ## ✨ 核心功能
 
@@ -46,25 +85,59 @@
 
 ### **智能推送策略**
 
-三种推送模式：
+**三种推送模式**：
 
 - **📈 投资者/交易员** → 选择 `incremental`，及时获取新增资讯
 - **📰 自媒体人/内容创作者** → 选择 `current`，掌握实时热点趋势  
 - **📋 企业管理者/普通用户** → 选择 `daily`，定时获取完整日报
 
+
+**静默推送模式**：
+
+- **时间范围控制**：设定推送时间窗口（如 9:00-18:00），仅在指定时间内推送
+- **适用场景**：
+  - 时间内每次执行都推送
+  - 时间范围内只推送一次
+
 ### **精准内容筛选**
 
 设置个人关键词（如：AI、比亚迪、教育政策），只推送相关热点，过滤无关信息
+
+- 支持普通词、必须词(+)、过滤词(!)三种语法，具体见【frequency_words.txt 配置教程】
+- 词组化管理，独立统计不同主题热点
+
+> 也可以不做筛选，完整的推送所有热点，具体见【历史更新】中的 v2.0.1
+
+### **个性化热点算法**
+
+不再被各个平台的算法牵着走，TrendRadar 会重新整理全网热搜：
+
+- **看重排名高的新闻**（占60%）：各平台前几名的新闻优先显示
+- **关注持续出现的话题**（占30%）：反复出现的新闻更重要  
+- **考虑排名质量**（占10%）：不仅多次出现，还经常排在前列
+
+**实际效果**：把分散在各个平台的热搜合并起来，按照你关心的热度重新排序
+
+> 这三个比例可以选择适合自己的场景进行调整，具体见【热点权重调整】
 
 ### **多渠道实时推送**
 
 支持**企业微信**、**飞书**、**钉钉**、**Telegram**，消息直达手机
 
+### **多端适配**
+- **GitHub Pages**：自动生成精美网页报告，PC/移动端适配
+- **Docker部署**：支持多架构容器化运行
+- **数据持久化**：HTML/TXT多格式历史记录保存
+
 ### **零技术门槛部署**
 
 GitHub 一键 Fork 即可使用，无需编程基础。
 
-> 如果要手机接收通知， 要达到 1 分钟部署完毕的效果，请选择**企业微信**
+> 30秒部署： GitHub Pages（网页浏览）
+>
+> 1分钟部署： 企业微信（手机通知）
+
+**💡 提示：** 想要**实时更新**的网页版？fork 后，进入你的仓库 Settings → Pages，启用 GitHub Pages。[效果预览](https://sansan0.github.io/TrendRadar/)。
 
 ### **减少 APP 依赖**
 
@@ -74,76 +147,124 @@ GitHub 一键 Fork 即可使用，无需编程基础。
 
 **典型场景：** 股市投资监控、品牌舆情追踪、行业动态关注、生活资讯获取
 
-**💡 提示：** 想要**实时更新**的网页版？进入你的仓库 Settings → Pages，启用 GitHub Pages。比如我这里[TrendRadar](https://sansan0.github.io/TrendRadar/)。
 
-
-| Github Pages效果 | 飞书推送效果 |
+| Github Pages 网页效果(手机端也适配) | 飞书推送效果 |
 |:---:|:---:|
 | ![Github Pages效果](_image/github-pages.png) | ![飞书推送效果](_image/feishu.jpg) |
 
 <details>
-<summary><strong>👉 点击查看推送格式说明</strong></summary>
+<summary><strong>👉 推送格式说明</strong></summary>
 
-## 📊 输出示例
+## **通知示例：**
 
-### 通知示例：
-
-```
 📊 热点词汇统计
 
-🔥 人工智能 AI : 12 条
+🔥 [1/3] AI ChatGPT : 2 条
 
-  1. [百度热搜] 科技巨头发布新AI模型 [1] - 12时30分 (4次)
+  1. [百度热搜] 🆕 ChatGPT-5正式发布 [**1**] - 09时15分 (1次)
+  
+  2. [今日头条] AI芯片概念股暴涨 [**3**] - [08时30分 ~ 10时45分] (3次)
+  
+━━━━━━━━━━━━━━━━━━━
 
-  2. [今日头条] AI技术最新突破 [2] - [13时15分 ~ 14时30分] (2次)
+📈 [2/3] 比亚迪 特斯拉 : 2 条
 
-```
+  1. [微博] 🆕 比亚迪月销量破纪录 [**2**] - 10时20分 (1次)
+  
+  2. [抖音] 特斯拉降价促销 [**4**] - [07时45分 ~ 09时15分] (2次)
 
-### 消息格式说明
+━━━━━━━━━━━━━━━━━━━
+
+📌 [3/3] A股 股市 : 1 条
+
+  1. [华尔街见闻] A股午盘点评分析 [**5**] - [11时30分 ~ 12时00分] (2次)
+
+🆕 本次新增热点新闻 (共 2 条)
+
+**百度热搜** (1 条):
+  1. ChatGPT-5正式发布 [**1**]
+
+**微博** (1 条):
+  1. 比亚迪月销量破纪录 [**2**]
+
+更新时间：2025-01-15 12:30:15
+
+
+## **消息格式说明**
 
 | 格式元素      | 示例                        | 含义         | 说明                                    |
 | ------------- | --------------------------- | ------------ | --------------------------------------- |
-| **关键词**    | **人工智能 AI**             | 频率词组     | 表示本组匹配的关键词                    |
-| : N 条        | : 12 条                     | 匹配数量     | 该关键词组匹配的标题总数                |
-| [平台名]      | [百度热搜]                  | 来源平台     | 标题所属的平台名称                      |
-| [**数字**]    | [**1**]                     | 高排名标记   | 排名 ≤ 阈值(默认 5)的热搜，红色加粗显示 |
-| [数字]        | [7]                         | 普通排名标记 | 排名>阈值的热搜，普通显示               |
-| - 时间        | - 12 时 30 分               | 首次发现时间 | 标题首次被发现的时间                    |
-| [时间 ~ 时间] | [12 时 30 分 ~ 14 时 00 分] | 时间范围     | 标题出现的时间范围(首次~最后)           |
-| (N 次)        | (4 次)                      | 出现次数     | 标题在监控期间出现的总次数              |
+| 🔥📈📌        | 🔥 [1/3] AI ChatGPT        | 热度等级     | 🔥高热度(≥10条) 📈中热度(5-9条) 📌普通热度(<5条) |
+| [序号/总数]   | [1/3]                       | 排序位置     | 当前词组在所有匹配词组中的排名          |
+| 频率词组      | AI ChatGPT                  | 关键词组     | 配置文件中的词组，标题必须包含其中词汇   |
+| : N 条        | : 2 条                      | 匹配数量     | 该词组匹配的新闻总数                    |
+| [平台名]      | [百度热搜]                  | 来源平台     | 新闻所属的平台名称                      |
+| 🆕            | 🆕 ChatGPT-5正式发布        | 新增标记     | 本轮抓取中首次出现的热点                |
+| [**数字**]    | [**1**]                     | 高排名       | 排名≤阈值的热搜，红色加粗显示           |
+| [数字]        | [7]                         | 普通排名     | 排名>阈值的热搜，普通显示               |
+| - 时间        | - 09时15分                  | 首次时间     | 该新闻首次被发现的时间                  |
+| [时间~时间]   | [08时30分 ~ 10时45分]       | 持续时间     | 从首次出现到最后出现的时间范围          |
+| (N次)         | (3次)                       | 出现频率     | 在监控期间出现的总次数                  |
+| **新增区域**  | 🆕 **本次新增热点新闻**      | 新话题汇总   | 单独展示本轮新出现的热点话题            |
 
 
 </details>
+
 
 ## 📝 更新日志
 
-<details>
-<summary><strong>👉 项目相关推荐</strong></summary>
-<br>
-
-> 附项目相关的两篇文章，欢迎留言交流
-
-- [2个月破 1000 star，我的GitHub项目推广实战经验](https://mp.weixin.qq.com/s/jzn0vLiQFX408opcfpPPxQ)
-- [基于本项目，如何开展公众号或者新闻资讯类文章写作](https://mp.weixin.qq.com/s/8ghyfDAtQZjLrnWTQabYOQ)
-
->**AI 开发：**
-- 如果你有小众需求，完全可以基于我的项目自行开发，零编程基础的也可以试试
-- 我所有的开源项目或多或少都使用了自己写的**AI辅助软件**来提升开发效率，这款工具已开源
-- **核心功能**：迅速筛选项目代码喂给AI，你只需要补充个人需求即可
-- **项目地址**：[https://github.com/sansan0/ai-code-context-helper](https://github.com/sansan0/ai-code-context-helper)
-
-</details>
-
 >**升级说明：** 
-- **小版本更新**：直接在 GitHub 网页编辑器中，用本项目的 `main.py` 代码替换你 fork 仓库中的对应文件 
+- **提示1**：请通过以下方式更新项目(或根据**更新提示**升级)，不要通过 **Sync fork** 更新
+- **提示2**：比如你当前是v2.0.1，想升级，建议查看【历史更新】，明确升级的方式和更新的功能
+- **小版本更新**：一般情况，直接在 GitHub 网页编辑器中，用本项目的 `main.py` 代码替换你 fork 仓库中的对应文件 
 - **大版本升级**：从 v1.x 升级到 v2.0 建议删除现有 fork 后重新 fork，这样更省力且避免配置冲突
+
+
+> 感谢各位朋友的支持与厚爱，特别感谢：
+> 
+> **fork 并为项目点 star** 的观众们，你们的认可是我前进的动力
+> 
+> **关注公众号并积极互动** 的读者们，你们的留言和点赞让内容更有温度
+> 
+> **给予资金点赞支持** 的朋友们，你们的慷慨让项目得以持续发展
+> 
+> 下一次**新功能**，大概会是 ai 分析功能(大概(●'◡'●)
+
+### 2025/09/13 - v2.1.2
+
+- 解决钉钉的推送容量限制导致的新闻推送失败问题(采用分批推送)
+
+
+<details>
+<summary><strong>👉 历史更新</strong></summary>
+
+### 2025/09/04 - v2.1.1
+
+- 修复docker在某些架构中无法正常运行的问题
+- 正式发布官方 Docker 镜像 wantcat/trendradar，支持多架构
+- 优化 Docker 部署流程，无需本地构建即可快速使用
+
+### 2025/08/30 - v2.1.0
+
+**核心改进**：
+- **推送逻辑优化**：从"每次执行都推送"改为"时间窗口内可控推送"
+- **时间窗口控制**：可设定推送时间范围，避免非工作时间打扰
+- **推送频率可选**：时间段内支持单次推送或多次推送
+
+**更新提示**：
+- 本功能默认关闭，需手动在 config.yaml 中开启静默推送模式
+- 升级需同时更新 main.py 和 config.yaml 两个文件
+
+### 2025/08/27 - v2.0.4
+
+- 本次版本不是功能修复，而是重要提醒
+- 请务必妥善保管好 webhooks，不要公开，不要公开，不要公开
+- 如果你以 fork 的方式将本项目部署在 GitHub 上，请将 webhooks 填入 GitHub Secret，而非 config.yaml
+- 如果你已经暴露了 webhooks 或将其填入了 config.yaml，建议删除后重新生成
 
 ### 2025/08/06 - v2.0.3
 
 - 优化 github page 的网页版效果，方便移动端使用
-
-<details>
-<summary><strong>👉 历史更新</strong></summary>
 
 ### 2025/07/28 - v2.0.2
 
@@ -391,21 +512,26 @@ frequency_words.txt 文件增加了一个【必须词】功能，使用 + 号
       - `TELEGRAM_CHAT_ID`：填入第 2 步获得的 Chat ID
    </details>
 
-3. **配置关键词和设置**:
+3. **主要配置**:
 
-    - **关键词配置**: 修改 `config/frequency_words.txt` 文件，添加你关心的关键词
-    - **运行模式配置**: 在 `config/config.yaml` 中修改 `report.mode` 设置：
+    - **推送设置：** : 在 [config/config.yaml](config/config.yaml) 中进行，可根据里面的描述文字操作，这里不重复了
+    - 比如: 在 `config/config.yaml` 中修改 `report.mode` 设置：
+
       | 模式 | 推送时机 | 显示内容 | 适用场景 |
         |------|----------|----------|----------|
         | **当日汇总模式**<br/>`daily` | 按时推送 | 当日所有匹配新闻<br/>+ 新增新闻区域 | 日报总结<br/>全面了解当日热点趋势 |
         | **当前榜单模式**<br/>`current` | 按时推送 | 当前榜单匹配新闻<br/>+ 新增新闻区域 | 实时热点追踪<br/>了解当前最火的内容 |
         | **增量监控模式**<br/>`incremental` | 有新增才推送 | 新出现的匹配频率词新闻 | 避免重复信息干扰<br/>高频监控场景 |
-   
+
+    - **关键词配置**: 修改 [config/frequency_words.txt](config/frequency_words.txt) 文件，添加你关心的关键词
+    
     <details>
     <summary><strong>👉 frequency_words.txt 配置教程</strong></summary>
     <br>
 
     在 `frequency_words.txt` 文件中配置监控的关键词，支持三种语法和词组功能。
+
+    关键词越靠前，新闻的优先级越高，你可以根据自己的关注度调整关键词顺序
 
     ### 📋 基础语法说明
 
@@ -552,16 +678,10 @@ frequency_words.txt 文件增加了一个【必须词】功能，使用 + 号
     </details>
 
 
-4. **自动运行**:
+     
 
-   - 项目已包含`.github/workflows/crawler.yml`配置文件，默认每小时运行一次
-   - 你也可以在 GitHub 仓库的 Actions 页面手动触发运行
-
-5. **查看结果**:
-   - 运行结果将自动保存在仓库的`output`目录中
-   - 同时通过配置的机器人发送通知到你的群组
-
-
+<details>
+<summary><strong>👉 自定义监控平台</strong></summary>
 
 ### 🔧 自定义监控平台
 
@@ -579,52 +699,236 @@ platforms:
     name: "华尔街见闻"
   # 添加更多平台...
 ```
+</details>
 
 <details>
 <summary><strong>👉 Docker 部署</strong></summary>
 
 ### 🐳 Docker 部署
 
-1. **克隆项目并进入目录**:
+#### 方式一：快速体验（一行命令）
+
+```bash
+# 直接运行，使用默认配置（仅体验功能，无推送通知）
+docker run -d --name trend-radar \
+  -v ./config:/app/config:ro \
+  -v ./output:/app/output \
+  -e CRON_SCHEDULE="*/30 * * * *" \
+  -e RUN_MODE="cron" \
+  -e IMMEDIATE_RUN="true" \
+  wantcat/trendradar:latest
+
+# 或者启用手机应用推送通知
+docker run -d --name trend-radar \
+  -v ./config:/app/config:ro \
+  -v ./output:/app/output \
+  -e FEISHU_WEBHOOK_URL="你的飞书webhook" \
+  -e DINGTALK_WEBHOOK_URL="你的钉钉webhook" \
+  -e WEWORK_WEBHOOK_URL="你的企业微信webhook" \
+  -e TELEGRAM_BOT_TOKEN="你的telegram_bot_token" \
+  -e TELEGRAM_CHAT_ID="你的telegram_chat_id" \
+  -e CRON_SCHEDULE="*/30 * * * *" \
+  -e RUN_MODE="cron" \
+  -e IMMEDIATE_RUN="true" \
+  wantcat/trendradar:latest
+```
+
+**注意**：快速体验模式需要先准备配置文件：
+
+**Linux/macOS 系统：**
+```bash
+# 创建配置目录并下载配置文件
+mkdir -p config output
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/config.yaml -P config/
+wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/frequency_words.txt -P config/
+```
+或者**手动创建**：
+1. 在当前目录下创建两个文件夹：`config` 和 `output`
+2. 下载配置文件到对应位置：
+   - 访问 https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/config.yaml → 右键"另存为" → 保存到 `config\config.yaml`
+   - 访问 https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/frequency_words.txt → 右键"另存为" → 保存到 `config\frequency_words.txt`
+
+完成后的目录结构应该是：
+```
+当前目录/
+├── config/
+│   ├── config.yaml
+│   └── frequency_words.txt
+└── output/
+```
+
+#### 方式二：使用 docker-compose（推荐）
+
+1. **创建项目目录和配置**:
    ```bash
-   git clone https://github.com/sansan0/TrendRadar.git
-   cd TrendRadar
+   # 创建目录结构
+   mkdir -p trendradar/{config,docker}
+   cd trendradar
+   
+   # 下载配置文件模板
+   wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/config.yaml -P config/
+   wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/config/frequency_words.txt -P config/
+   
+   # 下载 docker-compose 配置
+   wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/docker/.env
+   wget https://raw.githubusercontent.com/sansan0/TrendRadar/master/docker/docker-compose.yml
    ```
 
-2. **配置文件**:
-   - 修改 `config/config.yaml` 和 `config/frequency_words.txt`
-   - **推送链接填写**，**设置推送定时**可通过 .env 进行配置
+完成后的目录结构应该是：
+```
+当前目录/
+├── config/
+│   ├── config.yaml
+│   └── frequency_words.txt
+└── docker/
+    ├── .env
+    └── docker-compose.yml
+```
+
+2. **配置文件说明**:
+   - `config/config.yaml` - 应用主配置（报告模式、推送设置等）
+   - `config/frequency_words.txt` - 关键词配置（设置你关心的热点词汇）
+   - `.env` - 环境变量配置（webhook URLs 和定时任务）
 
 3. **启动服务**:
    ```bash
-   cd docker
+   # 拉取最新镜像并启动
+   docker-compose pull
    docker-compose up -d
    ```
 
-4. **管理服务**:
+4. **查看运行状态**:
    ```bash
-   # 查看运行状态
-   docker exec -it trend-radar python manage.py status
+   # 查看日志
+   docker logs -f trend-radar
    
-   # 手动执行一次爬虫
-   docker exec -it trend-radar python manage.py run
-   
-   # 查看实时日志
-   docker exec -it trend-radar python manage.py logs
-   
-   # 显示当前配置
-   docker exec -it trend-radar python manage.py config
-   
-   # 显示输出文件
-   docker exec -it trend-radar python manage.py files
-   
-   # 重启定时服务
-   docker exec -it trend-radar python manage.py restart
-   
-   # 显示帮助信息
-   docker exec -it trend-radar python manage.py help
+   # 查看容器状态
+   docker ps | grep trend-radar
    ```
+
+#### 方式三：本地构建（开发者选项）
+
+如果需要自定义修改代码或构建自己的镜像：
+
+```bash
+# 克隆项目
+git clone https://github.com/sansan0/TrendRadar.git
+cd TrendRadar
+
+# 修改配置文件
+vim config/config.yaml
+vim config/frequency_words.txt
+
+# 使用构建版本的 docker-compose
+cd docker
+cp docker-compose-build.yml docker-compose.yml
+
+# 构建并启动
+docker-compose build
+docker-compose up -d
+```
+
+#### 镜像更新
+
+```bash
+# 方式一：手动更新
+docker pull wantcat/trendradar:latest
+docker-compose down
+docker-compose up -d
+
+# 方式二：使用 docker-compose 更新
+docker-compose pull
+docker-compose up -d
+```
+
+#### 服务管理命令
+
+```bash
+# 查看运行状态
+docker exec -it trend-radar python manage.py status
+
+# 手动执行一次爬虫
+docker exec -it trend-radar python manage.py run
+
+# 查看实时日志
+docker exec -it trend-radar python manage.py logs
+
+# 显示当前配置
+docker exec -it trend-radar python manage.py config
+
+# 显示输出文件
+docker exec -it trend-radar python manage.py files
+
+# 查看帮助信息
+docker exec -it trend-radar python manage.py help
+
+# 重启容器
+docker restart trend-radar
+
+# 停止容器
+docker stop trend-radar
+
+# 删除容器（保留数据）
+docker rm trend-radar
+```
+
+#### 数据持久化
+
+生成的报告和数据默认保存在 `./output` 目录下，即使容器重启或删除，数据也会保留。
+
+#### 故障排查
+
+```bash
+# 检查容器状态
+docker inspect trend-radar
+
+# 查看容器日志
+docker logs --tail 100 trend-radar
+
+# 进入容器调试
+docker exec -it trend-radar /bin/bash
+
+# 验证配置文件
+docker exec -it trend-radar ls -la /app/config/
+```
+
 </details>
+
+<details>
+<summary><strong>👉 热点权重调整</strong></summary>
+<br>
+
+当前默认的配置是平衡性配置
+
+### 两个核心场景
+
+**追实时热点型**：
+```yaml
+weight:
+  rank_weight: 0.8    # 主要看排名
+  frequency_weight: 0.1  # 不太在乎持续性
+  hotness_weight: 0.1
+```
+**适用人群**：自媒体博主、营销人员、想快速了解当下最火话题的用户
+
+**追深度话题型**：
+```yaml
+weight:
+  rank_weight: 0.4    # 适度看排名
+  frequency_weight: 0.5  # 重视当天内的持续热度
+  hotness_weight: 0.1
+```
+**适用人群**：投资者、研究人员、新闻工作者、需要深度分析趋势的用户
+
+### 调整的方法
+1. **三个数字加起来必须等于 1.0**
+2. **哪个重要就调大哪个**：在乎排名就调大 rank_weight，在乎持续性就调大 frequency_weight
+3. **建议每次只调 0.1-0.2**，观察效果
+
+核心思路：追求速度和时效性的用户提高排名权重，追求深度和稳定性的用户提高频次权重。
+
+</details>
+
 
 ## ☕ 学习交流与1元点赞
 
@@ -638,20 +942,32 @@ platforms:
 
 </div>
 
-感谢以下热心观众的点赞
+### 项目相关推荐
 
-|           点赞人            |  金额  |  日期  |             备注             |
-| :-------------------------: | :----: | :----: | :-----------------------: |
-|           S*o            |  1  | 2025.8.05 |   支持一下        |
-|           *侠            |  10  | 2025.8.04 |           |
-|           x*x            |  2  | 2025.8.03 |  trendRadar 好项目 点赞          |
-|           *远            |  1  | 2025.8.01 |            |
-|           *邪            |  5  | 2025.8.01 |            |
-|           *梦            |  0.1  | 2025.7.30 |            |
-|           **龙            |  10  | 2025.7.29 |      支持一下      |
+> 附项目相关的两篇文章，欢迎留言交流
+
+- [2个月破 1000 star，我的GitHub项目推广实战经验](https://mp.weixin.qq.com/s/jzn0vLiQFX408opcfpPPxQ)
+- [基于本项目，如何开展公众号或者新闻资讯类文章写作](https://mp.weixin.qq.com/s/8ghyfDAtQZjLrnWTQabYOQ)
+
+>**AI 开发：**
+- 如果你有小众需求，完全可以基于我的项目自行开发，零编程基础的也可以试试
+- 我所有的开源项目或多或少都使用了自己写的**AI辅助软件**来提升开发效率，这款工具已开源
+- **核心功能**：迅速筛选项目代码喂给AI，你只需要补充个人需求即可
+- **项目地址**：https://github.com/sansan0/ai-code-context-helper
+
+### 其余项目
+
+> 📍 毛主席足迹地图 - 交互式动态展示1893-1976年完整轨迹。欢迎诸位同志贡献数据
+
+- https://github.com/sansan0/mao-map
+
+> 哔哩哔哩(bilibili)评论区数据可视化分析软件
+
+- https://github.com/sansan0/bilibili-comment-analyzer
+
 
 <details>
-<summary><strong>👉 微信推送通知的折中方案</strong></summary>
+<summary><strong>👉 微信推送通知方案</strong></summary>
 <br>
 
 > 由于该方案是基于企业微信的插件机制，推送样式也十分不同，所以相关实现我暂时不准备纳入当前项目
@@ -662,18 +978,6 @@ platforms:
 - 配置好后，手机上的企业微信 app 删除掉也没事
 
 <img src="_image/wework.png"  title="github"/>
-
-</details>
-
-
-<details>
-<summary><strong>👉 "手机推送通知系列"之新项目挖坑预告</strong></summary>
-<br>
-我很豪横地拿诸位的点赞，买了一瓶 15.5 元的柠檬汁
-
-截图中只支持一个渠道，我想顺便扩展功能，比如某些项目的更新监控，大家有什么好的建议可以公众号留言，完善后开源
-
-<img src="_image/next.jpg" width="300" title="github"/>
 
 </details>
 
@@ -723,9 +1027,6 @@ flowchart TD
 
 [![Star History Chart](https://api.star-history.com/svg?repos=sansan0/TrendRadar&type=Date)](https://www.star-history.com/#sansan0/TrendRadar&Date)
 
-## 🙏 致谢
-
-本项目使用了 [newsnow](https://github.com/ourongxing/newsnow) 提供的 API 服务，感谢其提供的数据支持。
 
 ## 📄 许可证
 
